@@ -1,0 +1,98 @@
+{
+  "consumer": {
+    "name": "GuestLadgerClient"
+  },
+  "provider": {
+    "name": "GuestLadgerApi"
+  },
+  "interactions": [
+    {
+      "description": "posting new guest ladger",
+      "providerState": "new guest ladger posted successfuly",
+      "request": {
+        "method": "POST",
+        "path": "/add",
+        "body": {
+          "email": "new@gmail.com",
+          "message": "Hello"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "email": "new@gmail.com",
+            "message": "Hello"
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "min": 1
+          },
+          "$.body[*].*": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "get all guest ladger book",
+      "providerState": "get all guest ladger book successfully",
+      "request": {
+        "method": "GET",
+        "path": "/book"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "email": "new@gmail.com",
+            "message": "Hello"
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "min": 1
+          },
+          "$.body[*].*": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "get a guest ladger book by email",
+      "providerState": "get guest ladger by email successfully",
+      "request": {
+        "method": "GET",
+        "path": "/book/new@gmail.com"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "email": "new@gmail.com",
+          "message": "Hello"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
