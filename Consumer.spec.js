@@ -18,7 +18,7 @@ const provider = new Pact({
 })
 const newGuestLadger = {email:'new@gmail.com',message:'Hello'}
 
-
+const newGuestLadger2 = {email:'new@gmail.com',message:'Hello'}
 describe('GuestLadgerBook consumer test',()=>{
     before( () => provider.setup());
     afterEach( () => provider.verify());
